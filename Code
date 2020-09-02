@@ -17,7 +17,7 @@ import java.util.Scanner;
 
         }
 
-        while(choice >7);
+        while(choice >4);
 
         switch(choice){
 
@@ -65,7 +65,7 @@ import java.util.Scanner;
 
                 //Display Final
                 System.out.println("The Multiplied Numbers Are: " +multTotal);
-                break;
+                
         }
 
 
