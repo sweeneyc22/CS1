@@ -1,0 +1,86 @@
+import java.util.Scanner;
+    class Main {
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+        boolean mainLoop = true;
+
+        int choice;
+        do{
+            System.out.println("Main Menu\n");
+            System.out.print("1: Convert Celsius to Fahrenheit \n");
+            System.out.print("2: Financial application: compound value\n");
+            System.out.print("3: Multiplication.\n");
+
+            choice = input.nextInt();
+
+        }
+
+        while(choice >7);
+
+        switch(choice){
+
+            case 1:
+                //Definitions
+                //Enter Degree in celsius
+                System.out.println("Enter Degrees in Celsius: ");
+                double celsius = input.nextDouble();
+                System.out.println("You entered " + celsius + " Celsius");
+
+                //Convert Celsius to Fahrenheit
+                System.out.println("Fahrenheit = (9 / 5) * celsius + 32");
+                double fahrenheit = ((9.0/5*celsius)+32);
+                System.out.println(celsius + " degrees Celsius is equal to " + fahrenheit + " degrees Fahrenheit");
+                break;
+
+            case 2:
+                System.out.println("Enter your current interest rate");
+                double interest = input.nextDouble();
+                System.out.println("You chose " + interest + "% interest rate");
+//Enter monthly saving amount: 100
+                System.out.println("Enter your monthly savings: ");
+                double accValue = input.nextDouble();
+                System.out.println("Your current account ballance is " + accValue);
+                System.out.println("The current interest rate is " + interest);
+//Calculate the first month of interest
+                System.out.println("How many months of interest?");
+                int months = input.nextInt();
+                double newBalance = accValue * (1 + interest/months);
+                double roundOff = Math.round(newBalance * 100.0) / 100.0;
+                System.out.println("Your balance after " + months + " months" + " is: " + roundOff);
+                break;
+
+            case 3:
+                int multNum1, multNum2, multTotal;
+
+                // Gather Input
+                System.out.println("Please Enter The First Number To Multiply: ");
+                multNum1 = input.nextInt();
+                System.out.println("Please Enter The Second Number To Multiply: ");
+                multNum2 = input.nextInt();
+
+                // This will Multiply the Numbers
+                multTotal = multNum1 * multNum2;
+
+                //Display Final
+                System.out.println("The Multiplied Numbers Are: " +multTotal);
+                break;
+        }
+
+
+
+        // Bad Menu Option Direct
+        if (choice > 4 || choice < 1){
+            System.out.println("This is not a valid Menu Option! Please Select Another.");
+            do{
+                choice = input.nextInt();
+            }
+            while(choice < 4 );
+        }
+        // End menu
+
+
+    }
+
+}
