@@ -11,7 +11,7 @@ import java.util.Scanner;
             System.out.println("Main Menu\n");
             System.out.print("1: Convert Celsius to Fahrenheit \n");
             System.out.print("2: Financial application: compound value\n");
-            System.out.print("3: Multiplication.\n");
+            System.out.print("3: Financial application: calculate future investment value\n");
 
             choice = input.nextInt();
 
@@ -22,7 +22,7 @@ import java.util.Scanner;
         switch(choice){
 
             case 1:
-                //Definitions
+                //C to F
                 //Enter Degree in celsius
                 System.out.println("Enter Degrees in Celsius: ");
                 double celsius = input.nextDouble();
@@ -35,48 +35,55 @@ import java.util.Scanner;
                 break;
 
             case 2:
-                System.out.println("Enter your current interest rate");
-                double interest = input.nextDouble();
-                System.out.println("You chose " + interest + "% interest rate");
-//Enter monthly saving amount: 100
-                System.out.println("Enter your monthly savings: ");
-                double accValue = input.nextDouble();
-                System.out.println("Your current account ballance is " + accValue);
-                System.out.println("The current interest rate is " + interest);
-//Calculate the first month of interest
-                System.out.println("How many months of interest?");
+                //2.13 (Financial application: compound value) Suppose you save $100 each month into a savings account with the annual interest rate 5%. Thus, the monthly interest rate is 0.05/12 = 0.00417. After
+                // the first month, the value in the account becomes 100 * (1 + 0.00417) = 100.417 After the second month, the value in the account becomes (100 + 100.417) * (1 + 0.00417) = 201.252 After the third
+                // month, the value in the account becomes (100 + 201.252) * (1 + 0.00417) = 302.507 and so on. Write a program that prompts the user to enter a monthly saving amount and displays the account value
+                // after the sixth month. (In Exercise 5.30, you will use a loop to simplify the code and display the account value for any month.) Enter the monthly saving amount: 100. After the sixth month, the
+                // account value is $608.81
+
+                //Enter monthly saving amount
+                System.out.println("Enter the monthly saving amount:");
+                double amount = input.nextDouble();
+                //how many months of interest?
+                System.out.println("Enter months");
                 int months = input.nextInt();
-                double newBalance = accValue * (1 + interest/months);
-                double roundOff = Math.round(newBalance * 100.0) / 100.0;
-                System.out.println("Your balance after " + months + " months" + " is: " + roundOff);
+                double total = 0;
+
+                //For every month
+                for (int i = 1; i <= months; i++) {
+                    total = (amount + total) * 1.00417;
+                }
+                //Display result
+                System.out.println("After " + months + " months the account value is" + total);
                 break;
-
             case 3:
-                int multNum1, multNum2, multTotal;
-
-                // Gather Input
-                System.out.println("Please Enter The First Number To Multiply: ");
-                multNum1 = input.nextInt();
-                System.out.println("Please Enter The Second Number To Multiply: ");
-                multNum2 = input.nextInt();
-
-                // This will Multiply the Numbers
-                multTotal = multNum1 * multNum2;
-
-                //Display Final
-                System.out.println("The Multiplied Numbers Are: " +multTotal);
-                
+                //*2.21 (Financial application: calculate future investment value) Write a program that reads in investment amount, annual interest rate,
+                // and number of years, and displays the future investment value using the following formula: futureInvestmentValue = investmentAmount * (1 + monthlyInterestRate)numberOfYears*12
+                // For example, if you enter amount 1000, annual interest rate 3.25%, and number of years 1, the future investment value is 1032.98. Here is a sample run:
+                // Enter investment amount: 1000.56 Enter annual interest rate in percentage: 4.25 Enter number of years: 1 Accumulated value is $1043.92
+                System.out.print("Enter investment amount:");
+                double investAmount = input.nextDouble();
+                System.out.print("Enter annual interest rate in percentage:");
+                double monthlyRate = input.nextDouble();
+                monthlyRate = monthlyRate / 12;
+                System.out.print("Enter number of years:");
+                double numberOfYears = input.nextDouble();
+                double futureValue = investAmount
+                        * Math.pow((1 + monthlyRate / 100),
+                        (numberOfYears * 12));
+                System.out.print("Accumulated value is " + futureValue);
+                break;
         }
 
 
 
-        // Bad Menu Option Direct
-        if (choice > 4 || choice < 1){
+        // Bad choice
+        if (choice > 3 || choice < 1){
             System.out.println("This is not a valid Menu Option! Please Select Another.");
             do{
                 choice = input.nextInt();
             }
-            while(choice < 4 );
+            while(choice < 3 );
         }
         // End menu
 
