@@ -1,0 +1,143 @@
+/*
+(Guess birthday) Rewrite Listing 4.3, GuessBirthday.java, to prompt the user to
+enter the character Y for Yes and N for No rather than entering 1 for Yes and 0
+for No.
+*/
+import java.util.Scanner;
+
+/*
+public class Ch41 {
+	static Scanner input = new Scanner(System.in);
+
+	private static int day = 0;
+	private static String set1 = " 1  3  5  7\n" + " 9 11 13 15\n" + "17 19 21 23\n" + "25 27 29 31";
+	private static String set2 = " 2  3  6  7\n" + "10 11 14 15\n" + "18 19 22 23\n" + "26 27 30 31";
+	private static String set3 = " 4  5  6  7\n" + "12 13 14 15\n" + "20 21 22 23\n" + "28 29 30 31";
+	private static String set4 = " 8  9 10 11\n" + "12 13 14 15\n" + "24 25 26 27\n" + "28 29 30 31";
+	private static String set5 = "16 17 18 19\n" + "20 21 22 23\n" + "24 25 26 27\n" + "28 29 30 31";
+
+	public static void main(String[] args) {
+		System.out.println("Hello Nerds!\nThis program will guess your birth date!\n");
+
+
+		isYourBirthdayInSet1();
+		isYourBrithdayInSet2();
+		isYourBirthdayInSet3();
+		isYourBirthdayInSet4();
+		isYourBirthdayInSet5();
+		
+		System.out.println("Your birth date is on the " + day + "!");
+		System.out.println("Goodbye!");
+	}
+
+	private static void isYourBirthdayInSet5() {
+		// TODO Auto-generated method stub
+		System.out.print("Is your birthday in Set5?\n");
+		System.out.print("\n" + set5 + "\n");
+		System.out.print("\nEnter Y for Yes and N for No: ");
+
+		String s = input.nextLine();
+		char answer = s.charAt(0);
+
+		if (Character.toUpperCase(answer) == 'Y') {
+			day += 16;
+			System.out.println("Users birthday was in fifth set");
+
+		} else if (answer == 'N' || answer == 'n') {
+			System.out.println("Users brithday was not in fifth set");				
+		}
+	}
+
+	private static void isYourBirthdayInSet4() {
+		// TODO Auto-generated method stub
+		System.out.print("Is your birthday in Set4?\n");
+		System.out.print("\n" + set4 + "\n");
+		System.out.print("\nEnter Y for Yes and N for No: ");
+
+		String s = input.nextLine();
+		char answer = s.charAt(0);
+
+		if (Character.toUpperCase(answer) == 'Y') {
+			day += 8;
+			System.out.println("Users birthday was in fourth set");
+
+		} else if (answer == 'N' || answer == 'n') {
+			System.out.println("Users brithday was not in fourth set");
+		}
+	}
+
+
+	private static void isYourBirthdayInSet3() {
+		// TODO Auto-generated method stub
+
+		System.out.print("Is your birthday in Set3?\n");
+		System.out.print("\n" + set3 + "\n");
+		System.out.print("\nEnter Y for Yes and N for No: ");
+
+		String s = input.nextLine();
+		char answer = s.charAt(0);
+
+		if (Character.toUpperCase(answer) == 'Y') {
+			day += 4;
+			System.out.println("Users birthday was in third set");
+
+		} else if (answer == 'N' || answer == 'n') {
+			System.out.println("Users brithday was not in third set");
+		}
+	}
+
+	private static void isYourBrithdayInSet2() {
+		// TODO Auto-generated method stub
+
+		System.out.print("Is your birthday in Set2?\n");
+		System.out.print("\n" + set2 + "\n");
+		System.out.print("\nEnter Y for Yes and N for No: ");
+
+		String s = input.nextLine();
+		char answer = s.charAt(0);
+
+		if (Character.toUpperCase(answer) == 'Y') {
+			day += 2;
+			System.out.println("Users birthday was in second set");
+
+		} else if (answer == 'N' || answer == 'n') {
+			System.out.println("Users brithday was not in second set");
+		}
+	}
+
+	public static void isYourBirthdayInSet1() {
+		// TODO Auto-generated method stub
+
+		System.out.print("Is your birthday in Set1?\n"); // Display question
+		System.out.print("\n" + set1 + "\n"); // Display value of String set1
+		System.out.print("\nEnter Y for Yes and N for No: "); // Request user input
+		String s = input.nextLine(); // Create a string and store input from System.in into it.
+		char answer = s.charAt(0); // Pick the first character of String s and set it to 'answer'
+
+		if (Character.toUpperCase(answer) == 'Y') {
+			day += 1;
+			System.out.println("Users birthday was in first set");
+
+		} else if (answer == 'N' || answer == 'n') {
+			System.out.println("Users brithday was not in first set");
+		}
+	}
+}
+*/
+
+public class Ch41 {
+ 
+ public static void main(String[] args) {
+  System.out.print("Enter a decimal value (0 to 15): "); // Request input from user
+  Scanner input = new Scanner(System.in);
+  int i = input.nextInt();
+ 
+  if (i < 0 || i > 15) {
+   System.out.println(i + " is an invalid input, please enter an integer between 0 and 15"); // If the entered integer is less than 0 or greater than 15, this is not valid input
+  }
+ 
+  System.out.println("The hex value is " + Integer.toHexString(i).toUpperCase()); // use method toHexString to convert the integer into a hex, then capitalize if needed.
+ 
+ }
+ 
+}
