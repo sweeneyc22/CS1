@@ -1,0 +1,36 @@
+/*
+import java.util.Scanner;
+
+public class SubtractionQuizLoop {
+	private static int totalCorrect = 0;
+	private static int totalWrong = 0;
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Initiated");
+
+		generateAdditionQuestion(input, totalCorrect, totalWrong);
+
+		System.out.println("Terminated");
+		input.close();
+	}
+
+	private static void generateAdditionQuestion(Scanner input, int totalCorrect, int totalWrong) {
+		int number1 = (int) (Math.random() * 15);
+		int number2 = (int) (Math.random() * 15);
+		System.out.println("What is " + number1 + " plus " + number2 + "?");
+		int decision = input.nextInt();
+		if (decision == (number1 + number2)) {
+			System.out.println("Correct!");
+			totalCorrect++;
+			System.out.println("Total Correct: " + totalCorrect + " " + "Total Wrong: " + totalWrong);
+			generateAdditionQuestion(input, totalCorrect, totalWrong);
+		} else {
+			System.out.println("Wrong!");
+			totalWrong++;
+			System.out.println("Total Correct: " + totalCorrect + " " + "Total Wrong: " + totalWrong);
+			generateAdditionQuestion(input, totalCorrect, totalWrong);
+		}
+	}
+}
+*/
