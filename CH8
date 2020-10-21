@@ -1,0 +1,85 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        Scanner input = new Scanner(System.in);
+
+        char[][] answers = {
+                {'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},
+                {'E', 'D', 'D', 'A', 'C', 'B', 'E', 'E', 'A', 'D'},
+                {'C', 'B', 'A', 'E', 'D', 'C', 'E', 'E', 'A', 'D'},
+                {'A', 'B', 'D', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'B', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'E', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'}};
+
+
+        int[][] studentsGradedAnswers = new int[answers.length][2];
+        //Grade a student
+        gradeStudentAnswers(answers, studentsGradedAnswers);
+        sortGradedAnswers(studentsGradedAnswers);
+        displaySortedAnswers(studentsGradedAnswers);
+
+        for (int row = 0; row < studentsGradedAnswers.length; row++) {
+            for (int col = 0; col < studentsGradedAnswers[row].length; col++) {
+
+            }
+        }
+    }
+
+
+    private static int[][] gradeStudentAnswers(char[][] answers, int[][] studentsGradedAnswers) {
+        //Answer key
+        char[] keys = {'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'};
+
+
+        for (int rowStudent = 0; rowStudent < answers.length; rowStudent++) {
+            //Grade each element inside rowStudent
+            for (int colGrade = 0; colGrade < answers[rowStudent].length; colGrade++) {
+                if (answers[rowStudent][colGrade] == keys[colGrade]) {
+                    studentsGradedAnswers[rowStudent][0] = rowStudent;
+                    studentsGradedAnswers[rowStudent][1]++;
+                }
+            }
+        }
+
+        return studentsGradedAnswers;
+    }
+
+    public static void sortGradedAnswers(int[][] m) {
+        for (int i = 0; i < m.length; i++) {
+            // Find the min in the column 1
+            int minCol1 = m[i][1];
+            int minCol0 = m[i][0];
+            int minIndex = i;
+
+            for (int j = i + 1; j < m.length; j++) {
+                if (minCol1 > m[j][1]) {
+                    minCol1 = m[j][1];
+                    minCol0 = m[j][0];
+                    minIndex = j;
+                }
+            }
+
+            // Swap
+            if (minIndex != i) {
+                m[minIndex][1] = m[i][1];
+                m[minIndex][0] = m[i][0];
+                m[i][1] = minCol1;
+                m[i][0] = minCol0;
+            }
+        }
+    }
+
+    private static void displaySortedAnswers(int[][] studentsGradedAnswers) {
+        for (int row = 0; row < studentsGradedAnswers.length; row++) {
+            System.out.println("Student " + studentsGradedAnswers[row][0] +
+                    "'s correct count is " + studentsGradedAnswers[row][1]);
+        }
+    }
+}
