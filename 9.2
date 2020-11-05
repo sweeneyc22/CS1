@@ -1,0 +1,62 @@
+/* Main.java *\
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+        Stock stock = new Stock("ORACLE", "Oracle Corporation");
+        stock.setPreviousClosingPrice(34.5);
+        stock.setCurrentPrice(34.35);
+        System.out.println("Stock name: " + stock.getName() + " Symbol: " + stock.getSymbol());
+        System.out.println("previous price: " + stock.getPreviousClosingPrice());
+        System.out.println("current price: " + stock.getCurrentPrice());
+        System.out.printf("Price-change percentage: \n" +
+                stock.getChangePercent());
+    }
+}
+
+/* Stock.java *\
+package com.company;
+
+public class Stock {
+
+    private String symbol;
+    private String name;
+
+    private double previousClosingPrice;
+    private double currentPrice;
+
+    public Stock(String symbol, String name) {
+        this.symbol = symbol;
+        this.name = name;
+    }
+    public String getSymbol() {
+        return symbol;
+    }
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getCurrentPrice() {
+        return currentPrice;
+    }
+    public void setCurrentPrice(double currentPrice) {
+        this.currentPrice = currentPrice;
+    }
+    public double getPreviousClosingPrice() {
+        return previousClosingPrice;
+    }
+    public void setPreviousClosingPrice(double previousClosingPrice) {
+        this.previousClosingPrice = previousClosingPrice;
+    }
+    public double getChangePercent() {
+        return(currentPrice - previousClosingPrice) / previousClosingPrice;
+    }
+}
